@@ -1,33 +1,38 @@
-# Information Security System & SIEM Monitoring 🛡️📈
+Information Security System 🔐📊
+A comprehensive repository documenting core information security exercises, enterprise vulnerability assessments, network intrusion detection setup, directory services configuration, cryptographic implementation, and digital integrity checks.
 
-A comprehensive enterprise defense and vulnerability management project centered around SIEM monitoring, centralized log collection, host firewall hardening, and automated vulnerability scanning.
+📋 Table of Contents
+Overview
 
----
+Vulnerability Assessment & Management
 
-## 📋 Table of Contents
-- [Project Scope](#-project-scope)
-- [SIEM Integration & Wazuh Deployment](#-siem-integration--wazuh-deployment)
-- [Custom Threat Detection Rules](#-custom-threat-detection-rules)
-- [Vulnerability Scanning & Hardening](#-vulnerability-scanning--hardening)
+Directory Services & Authentication (LDAP & Kerberos)
 
----
+Intrusion Detection Systems (Snort IDS)
 
-## 🎯 Project Scope
-Focuses on establishing robust defensive visibility, detecting brute-force attacks in real time, hardening operating system firewalls, and managing asset vulnerability lifecycles.
+Cryptographic Mechanisms & Integrity Verification
 
----
+🔎 Overview
+This lab project explores foundational security engineering and defensive operations, highlighting automated vulnerability scanning, secure enterprise authentication models, packet-level intrusion detection, and cryptographic file protection.
 
-## 👁️ SIEM Integration & Wazuh Deployment
-* **Multi-Platform Agents**: Deployed and configured Wazuh security agents across Linux (`Ubuntu`, `RHEL`) and Windows endpoints (`Windows Server 2019`, `Windows 10`)[cite: 82, 176, 191].
-* **Audit Policy Integration**: Enabled advanced audit logging (`auditpol` / Windows Security Event logs) to feed authentication success/failure metrics directly into the SIEM dashboard[cite: 32, 188].
+🛡️ Vulnerability Assessment & Management
+Nessus Scanning: Conducted comprehensive host and network vulnerability scans (e.g., Windows 7 asset scans) to identify missing patches, security misconfigurations, and software end-of-life vulnerabilities[cite: 281, 286].
 
----
+Report Analysis: Analyzed risk vectors, categorized findings by severity, and prioritized remediation actions.
 
-## 🚨 Custom Threat Detection Rules
-* **Custom Alerting**: Developed specialized XML rules (`local_rules.xml`) within Wazuh to trigger high-priority alerts upon detecting repeated authentication failures, suspicious script execution, or unauthorized service attempts[cite: 196].
+🗂️ Directory Services & Authentication (LDAP & Kerberos)
+OpenLDAP Implementation: Configured master LDAP servers (ldap.example.com) and client systems using slapd, provisioning organizational units (ou=demo), user schemas (inetOrgPerson, posixAccount), and secure password hashing (SSHA)[cite: 300, 302, 304].
 
----
+Kerberos Realm Configuration: Set up a fully functional Kerberos V5 authentication server (krbsrv.example.com) and workstation client (krbclient.example.com), managing principals, keytabs (/etc/krb5.keytab), and ticket generation (kinit, klist) for secure remote shell access via SSH[cite: 288, 291, 295].
 
-## 🔍 Vulnerability Scanning & Hardening
-* **Nessus Scanning**: Conducted scheduled vulnerability assessments against lab subnets to locate unpatched software, missing security patches, and legacy operating systems[cite: 206].
-* **Firewall Hardening**: Configured Windows Defender Firewall with Advanced Security rules (`netsh` / Inbound Rule Wizard) to block high-risk ports such as SMB (`445`) and RDP against lateral traversal[cite: 219].
+🚨 Intrusion Detection Systems (Snort IDS)
+Snort Configuration: Deployed and configured Snort IDS on Ubuntu virtual interfaces (enp0s8 in promiscuous mode) to monitor network traffic[cite: 307].
+
+Custom Rule Writing: Developed custom organizational detection rules (ORG.rules) to capture specific malicious or anomalous traffic patterns, such as ICMP echo requests and unauthorized SSH connection attempts[cite: 307].
+
+🔑 Cryptographic Mechanisms & Integrity Verification
+Asymmetric Signatures: Generated RSA private/public key pairs using openssl to sign confidential documents and verify data integrity and non-repudiation (Verified OK vs. Verification Failure upon content tampering)[cite: 311, 312].
+
+Symmetric Encryption: Implemented command-line and desktop file encryption using AES Crypt to secure sensitive media assets (.aes)[cite: 313].
+
+Message Digest Integrity: Validated file integrity across state changes using checksum algorithms (md5sum).
